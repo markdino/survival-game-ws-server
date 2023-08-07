@@ -4,7 +4,7 @@ const cors = require('cors')
 const { Server } = require('socket.io')
 
 // Constants
-const FE_URL = "http://localhost:3001"
+const FE_URL = "http://localhost:3005"
 const WS_PORT = 3001
 const GAME_TOPIC = "game_status_topic"
 
