@@ -4,7 +4,12 @@ const cors = require('cors')
 const { Server } = require('socket.io')
 
 // Constants
-const FE_URL = "https://survival-quiz-game.netlify.app/"
+const FE_URLS = [
+    "http://localhost:3000", 
+    "http://localhost:3001",
+    "http://localhost:3002",
+    "https://deploy-preview-16--survival-quiz-game.netlify.app",
+    "https://survival-quiz-game.netlify.app"]
 const WS_PORT = 3005
 const GAME_TOPIC = "game_status_topic"
 
@@ -14,7 +19,7 @@ app.use(cors())
 const server = http.createServer(app)
 const io = new Server(server, {
     cors: {
-        origin: FE_URL,
+        origin: FE_URLS,
         methods: ["GET", "POST"]
     },
 })
