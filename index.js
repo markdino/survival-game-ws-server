@@ -12,6 +12,7 @@ const FE_URLS = [
     "https://survival-quiz-game.netlify.app"]
 const WS_PORT = 3005
 const GAME_TOPIC = "game_status_topic"
+const JOIN_ROOM = "join-room"
 
 // Init Server
 const app = express()
@@ -32,6 +33,10 @@ io.on("connection", (socket) => {
     socket.on(GAME_TOPIC, (data) => {
         socket.broadcast.emit(GAME_TOPIC, data)
         console.log(data)
+    })
+    
+    socket.on(JOIN_ROOM, room => {
+        socket.join(room)
     })
 })
 
